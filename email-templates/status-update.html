@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Актуализация на поръчката - ТортоМания</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .email-container {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #f59e0b;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #f59e0b;
+            margin-bottom: 10px;
+        }
+        .status-update {
+            background: #fff5ee;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border-left: 4px solid {{statusColor}};
+            text-align: center;
+        }
+        .status-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        .status-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: {{statusColor}};
+            margin-bottom: 10px;
+        }
+        .info-section {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        .button {
+            display: inline-block;
+            background: #f59e0b;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <div class="logo">🍰 ТортоМания</div>
+            <h1 style="color: #333; margin: 0;">Актуализация на поръчката</h1>
+            <p style="color: #666;">Поръчка #{{orderNumber}}</p>
+        </div>
+
+        <p>Здравейте <strong>{{customerName}}</strong>,</p>
+
+        <div class="status-update">
+            <div class="status-icon">{{statusIcon}}</div>
+            <div class="status-title">{{statusTitle}}</div>
+            <p style="font-size: 16px; margin: 15px 0;">{{statusMessage}}</p>
+            <p><strong>Актуализирано в: {{updateTime}}</strong></p>
+        </div>
+
+        <div class="info-section">
+            <h3>📝 Следващи стъпки</h3>
+            <p>{{nextSteps}}</p>
+            {{#if estimatedCompletion}}
+            <p><strong>Очаквано време:</strong> {{estimatedCompletion}}</p>
+            {{/if}}
+        </div>
+
+        {{#if trackingUrl}}
+        <div style="text-align: center; margin: 25px 0;">
+            <a href="{{trackingUrl}}" class="button">Проследи поръчката</a>
+        </div>
+        {{/if}}
+
+        <div class="info-section">
+            <h3>📞 Нужна помощ?</h3>
+            <p>При въпроси се свържете с нас:</p>
+            <p><strong>Телефон:</strong> {{contactInfo}}</p>
+            <p><strong>Работно време:</strong> Понеделник - Неделя: 6:00 - 20:00</p>
+        </div>
+
+        <div class="footer">
+            <p>Благодарим Ви, че избрахте ТортоМания!</p>
+            <p>🍰 ТортоМания | ул. Витоша 15, София</p>
+            <p>📞 +359 2 123 4567 | 📧 info@tortomaniya.bg</p>
+            <p><small>Този имейл е изпратен автоматично. Моля, не отговаряйте директно на този имейл.</small></p>
+        </div>
+    </div>
+</body>
+</html>

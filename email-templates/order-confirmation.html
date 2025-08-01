@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Потвърждение на поръчка - ТортоМания</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .email-container {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #f59e0b;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #f59e0b;
+            margin-bottom: 10px;
+        }
+        .order-details {
+            background: #fff5ee;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #f59e0b;
+        }
+        .item-list {
+            margin: 20px 0;
+        }
+        .item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .total {
+            background: #f59e0b;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .info-section {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        .button {
+            display: inline-block;
+            background: #f59e0b;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <div class="logo">🍰 ТортоМания</div>
+            <h1 style="color: #333; margin: 0;">Потвърждение на поръчка</h1>
+        </div>
+
+        <p>Здравейте <strong>{{customerName}}</strong>,</p>
+        
+        <p>Благодарим Ви за поръчката! Вашата поръчка е получена и ще бъде приготвена с грижа от нашите пекари.</p>
+
+        <div class="order-details">
+            <h3>📋 Детайли на поръчката</h3>
+            <p><strong>Номер на поръчката:</strong> #{{orderNumber}}</p>
+            <p><strong>Дата на поръчката:</strong> {{orderDate}}</p>
+            <p><strong>Начин на доставка:</strong> {{deliveryMethod}}</p>
+            <p><strong>Адрес за доставка:</strong> {{deliveryAddress}}</p>
+        </div>
+
+        <div class="item-list">
+            <h3>🛒 Поръчани продукти</h3>
+            {{#each items}}
+            <div class="item">
+                <div>
+                    <strong>{{name}}</strong><br>
+                    <small>Количество: {{quantity}} бр. × {{price}} лв</small>
+                </div>
+                <div>
+                    <strong>{{total}} лв</strong>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+        <div class="total">
+            Обща сума: {{total}} лв
+        </div>
+
+        <div class="info-section">
+            <h3>⏱️ Време за готовност</h3>
+            <p>Очаквайте вашата поръчка да бъде готова след <strong>{{estimatedTime}}</strong>.</p>
+            <p>Ще получите SMS уведомление, когато поръчката е готова за {{deliveryMethod}}.</p>
+        </div>
+
+        <div class="info-section">
+            <h3>💳 Плащане</h3>
+            <p><strong>Начин на плащане:</strong> {{paymentMethod}}</p>
+            <p><a href="{{trackingUrl}}" class="button">Проследи поръчката</a></p>
+        </div>
+
+        <div class="info-section">
+            <h3>📍 Информация за контакт</h3>
+            <p><strong>Адрес:</strong> {{bakeryAddress}}</p>
+            <p><strong>Телефон:</strong> {{bakeryPhone}}</p>
+            <p><strong>Работно време:</strong> Понеделник - Неделя: 6:00 - 20:00</p>
+        </div>
+
+        <div class="footer">
+            <p>Благодарим Ви, че избрахте ТортоМания!</p>
+            <p>За въпроси или промени в поръчката, моля свържете се с нас на {{bakeryPhone}}</p>
+            <p><small>Този имейл е изпратен автоматично. Моля, не отговаряйте директно на този имейл.</small></p>
+        </div>
+    </div>
+</body>
+</html>

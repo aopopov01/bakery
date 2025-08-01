@@ -1,0 +1,71 @@
+# Development Docker Compose for Bulgarian Bakery Platform
+version: '3.8'
+
+services:
+  # Main bakery application
+  bakery-app:
+    build: .
+    ports:
+      - "8000:3000"
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_API_BASE_URL=http://localhost:8000
+      - REACT_APP_REVOLUT_API_URL=https://sandbox-merchant.revolut.com
+      - REACT_APP_ENVIRONMENT=development
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+      - /app/node_modules
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - bakery-network
+
+  # Optional: Development database (for future upgrades)
+  bakery-db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: bakery_db
+      POSTGRES_USER: bakery_user
+      POSTGRES_PASSWORD: bakery_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - bakery_db_data:/var/lib/postgresql/data
+      - ./docker/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    restart: unless-stopped
+    networks:
+      - bakery-network
+
+  # Redis for session storage (optional)
+  bakery-redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+    networks:
+      - bakery-network
+
+  # Nginx reverse proxy (for production-like setup)
+  bakery-nginx:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./docker/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - bakery-app
+    restart: unless-stopped
+    networks:
+      - bakery-network
+
+volumes:
+  bakery_db_data:
+
+networks:
+  bakery-network:
+    driver: bridge

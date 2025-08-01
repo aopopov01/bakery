@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  email-server:
+    build: .
+    container_name: tortomaniya-email-server
+    ports:
+      - "3001:3001"
+    volumes:
+      - ../email-templates:/app/email-templates:ro
+      - ./logs:/app/logs
+    environment:
+      - NODE_ENV=production
+      - EMAIL_SERVER_PORT=3001
+      - GMAIL_USER=aopopov01@gmail.com
+      - GMAIL_APP_PASSWORD=oydm ftxq jnkb zskk
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - tortomaniya-network
+
+networks:
+  tortomaniya-network:
+    external: true

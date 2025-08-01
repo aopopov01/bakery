@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сигнал за нисък наличен запас - ТортоМания</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .email-container {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #dc2626, #f59e0b);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .alert-section {
+            background: #fee2e2;
+            border: 1px solid #fca5a5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #dc2626;
+        }
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .product-table th {
+            background: #f3f4f6;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .product-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .status-out { background: #fecaca; color: #dc2626; }
+        .status-low { background: #fed7aa; color: #ea580c; }
+        .info-section {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .button {
+            display: inline-block;
+            background: #dc2626;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        .priority-high {
+            background: #fecaca;
+            border-left-color: #dc2626;
+        }
+        .priority-medium {
+            background: #fed7aa;
+            border-left-color: #ea580c;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <div class="logo">🍰 ТортоМания</div>
+            <h1 style="margin: 0;">🚨 Сигнал за запаси</h1>
+            <p style="margin: 10px 0; opacity: 0.9;">Административно уведомление</p>
+        </div>
+
+        <div class="alert-section {{#if actionRequired}}priority-high{{else}}priority-medium{{/if}}">
+            <h2 style="color: #dc2626; margin: 0 0 15px 0;">
+                {{#if actionRequired}}🔴 СПЕШНО ДЕЙСТВИЕ{{else}}⚠️ ВНИМАНИЕ{{/if}}
+            </h2>
+            <p><strong>Тип сигнал:</strong> {{alertType}}</p>
+            <p><strong>Време на сигнала:</strong> {{alertTime}}</p>
+            <p><strong>Засегнати продукти:</strong> {{productCount}} продукта</p>
+            {{#if urgentCount}}
+            <p style="color: #dc2626; font-weight: bold;">
+                🔴 Изчерпани продукти: {{urgentCount}} броя
+            </p>
+            {{/if}}
+        </div>
+
+        <div class="info-section">
+            <h3>📋 Засегнати продукти</h3>
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>Продукт</th>
+                        <th>SKU</th>
+                        <th>Текущ запас</th>
+                        <th>Мин. запас</th>
+                        <th>Статус</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each products}}
+                    <tr>
+                        <td><strong>{{this.name}}</strong></td>
+                        <td><code>{{this.sku}}</code></td>
+                        <td style="text-align: center;">
+                            <span style="font-weight: bold; color: {{this.statusColor}};">
+                                {{this.currentStock}}
+                            </span>
+                        </td>
+                        <td style="text-align: center;">{{this.minStock}}</td>
+                        <td>
+                            <span class="status-badge {{#if (eq this.status 'ИЗЧЕРПАНО')}}status-out{{else}}status-low{{/if}}">
+                                {{this.status}}
+                            </span>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+
+        {{#if actionRequired}}
+        <div class="alert-section priority-high">
+            <h3 style="color: #dc2626;">🔥 Изисква се незабавно действие!</h3>
+            <p>Има продукти, които са напълно изчерпани. Това може да повлияе на продажбите и задоволението на клиентите.</p>
+            <ul>
+                <li>Проверете доставчиците за наличност</li>
+                <li>Актуализирайте статуса на продуктите в системата</li>
+                <li>Уведомете клиентите за евентуални забавяния</li>
+                <li>Планирайте спешни доставки при необходимост</li>
+            </ul>
+        </div>
+        {{/if}}
+
+        <div class="info-section">
+            <h3>📊 Препоръчани действия</h3>
+            <ol>
+                <li><strong>Незабавни поръчки:</strong> Свържете се с доставчиците за спешни доставки</li>
+                <li><strong>Актуализиране на запасите:</strong> Проверете и актуализирайте количествата в системата</li>
+                <li><strong>Планиране:</strong> Прегледайте минималните количества за в бъдеще</li>
+                <li><strong>Уведомяване:</strong> Информирайте екипа за текущото състояние</li>
+            </ol>
+        </div>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="{{dashboardUrl}}" class="button">Отидете в администрацията</a>
+        </div>
+
+        <div class="info-section">
+            <h3>📞 Контакти с доставчици</h3>
+            <p><strong>Основен доставчик:</strong> +359 88 111 2222</p>
+            <p><strong>Резервен доставчик:</strong> +359 88 333 4444</p>
+            <p><strong>Спешни доставки:</strong> +359 88 555 6666</p>
+        </div>
+
+        <div class="footer">
+            <p><strong>Този сигнал е изпратен автоматично от системата на ТортоМания</strong></p>
+            <p>Моля, предприемете необходимите действия в най-кратък срок.</p>
+            <p>🍰 ТортоМания - Система за управление на запасите</p>
+            <p>📊 Администрация: {{dashboardUrl}}</p>
+            <p><small>Получавате този имейл, защото сте администратор в системата.</small></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Награда от програмата за лоялност - ТортоМания</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .email-container {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #10b981, #f59e0b);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .reward-section {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        .points-display {
+            background: white;
+            color: #10b981;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .info-section {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .button {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            margin: 15px 0;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        .tier-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        .tier-bronze { background: #cd853f; color: white; }
+        .tier-silver { background: #c0c0c0; color: #333; }
+        .tier-gold { background: #ffd700; color: #333; }
+        .tier-platinum { background: #e5e4e2; color: #333; }
+        .progress-bar {
+            background: #e0e0e0;
+            border-radius: 10px;
+            height: 20px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        .progress-fill {
+            background: linear-gradient(90deg, #10b981, #059669);
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <div class="logo">🍰 ТортоМания</div>
+            <h1 style="margin: 0;">🎉 Нова награда!</h1>
+            <p style="margin: 10px 0; opacity: 0.9;">Програма за лоялност</p>
+        </div>
+
+        <p>Здравейте <strong>{{userData.firstName}}</strong>,</p>
+        
+        <p>Имаме страхотни новини! Благодарение на Вашата лоялност към ТортоМания, спечелихте нова награда в нашата програма за лоялност.</p>
+
+        <div class="reward-section">
+            <h2 style="margin: 0 0 15px 0;">🏆 Вашата награда</h2>
+            <div style="font-size: 48px; margin: 15px 0;">🎁</div>
+            <h3 style="margin: 10px 0;">{{rewardData.description}}</h3>
+            <div style="background: rgba(255,255,255,0.2); padding: 15px; border-radius: 8px; margin: 15px 0;">
+                <p style="font-size: 18px; margin: 0;"><strong>Стойност: {{rewardData.value}}</strong></p>
+                {{#if rewardData.validUntil}}
+                <p style="margin: 5px 0; opacity: 0.9;">Валидна до: {{rewardData.validUntil}}</p>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="points-display">
+            <div>💎 Нови точки: <span style="color: #10b981;">+{{rewardData.pointsEarned}}</span></div>
+        </div>
+
+        <div class="info-section">
+            <h3>📊 Вашият текущ статус</h3>
+            <p style="margin-bottom: 15px;">
+                <span class="tier-badge tier-{{userData.loyaltyTier}}">{{userData.loyaltyTier}}</span>
+            </p>
+            <p><strong>Общо точки:</strong> {{userData.loyaltyPoints}} точки</p>
+            <p><strong>Общо похарчено:</strong> {{userData.totalSpent}} лв</p>
+        </div>
+
+        <div class="info-section">
+            <h3>🎁 Специални предимства</h3>
+            <div style="background: #fff5ee; padding: 15px; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                <p style="margin: 0; font-size: 16px; font-weight: bold; color: #f59e0b;">{{rewardData.description}}</p>
+                <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">Благодарим за лоялността към ТортоМания!</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="http://localhost:4000" class="button">Разгледайте новите ни продукти</a>
+        </div>
+
+        <div class="info-section">
+            <h3>✨ Как работи програмата за лоялност?</h3>
+            <ul style="padding-left: 20px;">
+                <li><strong>Bronze:</strong> 0-499 точки - 5% отстъпка</li>
+                <li><strong>Silver:</strong> 500-1499 точки - 10% отстъпка + безплатна доставка</li>
+                <li><strong>Gold:</strong> 1500-2999 точки - 15% отстъпка + специални предложения</li>
+                <li><strong>Platinum:</strong> 3000+ точки - 20% отстъпка + VIP обслужване</li>
+            </ul>
+            <p><small>1 лев = 1 точка | Точките се натрупват с всяка поръчка</small></p>
+        </div>
+
+        <div class="footer">
+            <p>Благодарим Ви за лоялността към ТортоМания!</p>
+            <p>Продължавайте да натрупвате точки и спечелвайте още награди.</p>
+            <p>🍰 ТортоМания | ул. Витоша 15, София</p>
+            <p>📞 +359 2 123 4567 | 📧 info@tortomaniya.bg</p>
+            <p><small>Този имейл е изпратен автоматично. Моля, не отговаряйте директно на този имейл.</small></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,205 @@
+/* Bulgarian Bakery - Colorful & Happy Design System */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom Google Fonts for Bulgarian support */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+/* Global styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  font-feature-settings: 'cv11', 'ss01';
+  font-variation-settings: 'opsz' 32;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #fef7cd 0%, #fed7aa 25%, #fecaca 50%, #f3e8ff 75%, #dbeafe 100%);
+  min-height: 100vh;
+}
+
+/* Bulgarian typography support */
+.font-bulgarian {
+  font-family: 'Inter', 'DejaVu Sans', 'Liberation Sans', sans-serif;
+  font-feature-settings: 'cv11', 'ss01', 'liga';
+}
+
+/* Colorful design system components */
+
+/* Happy buttons */
+.btn-primary {
+  @apply bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 border-2 border-orange-300 hover:border-orange-400;
+}
+
+.btn-secondary {
+  @apply bg-gradient-to-r from-pink-400 to-rose-500 hover:from-pink-500 hover:to-rose-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 border-2 border-pink-300 hover:border-pink-400;
+}
+
+.btn-success {
+  @apply bg-gradient-to-r from-emerald-400 to-green-500 hover:from-emerald-500 hover:to-green-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 border-2 border-emerald-300 hover:border-emerald-400;
+}
+
+.btn-info {
+  @apply bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 border-2 border-cyan-300 hover:border-cyan-400;
+}
+
+/* Colorful cards */
+.card-warm {
+  @apply bg-gradient-to-br from-white to-amber-50 border-2 border-amber-200 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm;
+}
+
+.card-cool {
+  @apply bg-gradient-to-br from-white to-blue-50 border-2 border-blue-200 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm;
+}
+
+.card-sweet {
+  @apply bg-gradient-to-br from-white to-pink-50 border-2 border-pink-200 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm;
+}
+
+.card-fresh {
+  @apply bg-gradient-to-br from-white to-green-50 border-2 border-green-200 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm;
+}
+
+/* Product category colors */
+.category-bread {
+  @apply bg-gradient-to-r from-amber-100 to-yellow-100 border-amber-300 text-amber-800;
+}
+
+.category-pastries {
+  @apply bg-gradient-to-r from-pink-100 to-rose-100 border-pink-300 text-pink-800;
+}
+
+.category-cookies {
+  @apply bg-gradient-to-r from-orange-100 to-red-100 border-orange-300 text-orange-800;
+}
+
+.category-cakes {
+  @apply bg-gradient-to-r from-purple-100 to-indigo-100 border-purple-300 text-purple-800;
+}
+
+.category-special {
+  @apply bg-gradient-to-r from-emerald-100 to-teal-100 border-emerald-300 text-emerald-800;
+}
+
+/* Navigation styles */
+.nav-link {
+  @apply text-gray-700 hover:text-orange-600 font-medium px-4 py-2 rounded-lg hover:bg-orange-100 transition-all duration-200 relative;
+}
+
+.nav-link.active {
+  @apply text-orange-600 bg-orange-100 font-semibold;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-orange-500 transition-all duration-300;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  @apply w-full;
+}
+
+/* Price display */
+.price-display {
+  @apply text-2xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent;
+}
+
+.price-small {
+  @apply text-lg font-semibold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent;
+}
+
+/* Loading animations */
+.loading-bounce {
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0,0,0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -30px, 0);
+  }
+  70% {
+    transform: translate3d(0, -15px, 0);
+  }
+  90% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+/* Floating elements */
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Gradient text */
+.gradient-text-warm {
+  @apply bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 bg-clip-text text-transparent;
+}
+
+.gradient-text-cool {
+  @apply bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent;
+}
+
+.gradient-text-sweet {
+  @apply bg-gradient-to-r from-pink-600 via-rose-600 to-red-600 bg-clip-text text-transparent;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .btn-primary,
+  .btn-secondary,
+  .btn-success,
+  .btn-info {
+    @apply py-2 px-4 text-sm;
+  }
+  
+  .card-warm,
+  .card-cool,
+  .card-sweet,
+  .card-fresh {
+    @apply rounded-xl;
+  }
+}
+
+/* Bulgarian currency symbol styling */
+.currency-lev::after {
+  content: ' лв';
+  @apply text-sm opacity-80;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-amber-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-amber-400 to-orange-500 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply from-amber-500 to-orange-600;
+}

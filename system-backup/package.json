@@ -1,0 +1,75 @@
+{
+  "name": "bulgarian-bakery-platform",
+  "version": "1.0.0",
+  "description": "E-commerce platform for Bulgarian bakeries with admin panel and Revolut integration",
+  "private": true,
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "connect-redis": "^9.0.0",
+    "cors": "^2.8.5",
+    "dotenv-safe": "^9.1.0",
+    "express-mongo-sanitize": "^2.2.0",
+    "express-rate-limit": "^8.0.1",
+    "express-session": "^1.18.2",
+    "express-validator": "^7.2.1",
+    "framer-motion": "^10.16.0",
+    "helmet": "^8.1.0",
+    "hpp": "^0.2.3",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.263.1",
+    "node-fetch": "^3.3.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.8.0",
+    "react-scripts": "5.0.1",
+    "redis": "^5.7.0",
+    "tailwindcss": "^3.3.0",
+    "web-vitals": "^3.3.2",
+    "xss-clean": "^0.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build:prod": "NODE_ENV=production npm run build",
+    "test": "react-scripts test",
+    "test:coverage": "npm test -- --coverage --watchAll=false",
+    "eject": "react-scripts eject",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "deploy:github": "npm run build && gh-pages -d build",
+    "deploy:vercel": "vercel --prod"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "gh-pages": "^4.0.0"
+  },
+  "keywords": [
+    "bakery",
+    "ecommerce",
+    "bulgarian",
+    "react",
+    "revolut",
+    "admin-panel"
+  ],
+  "author": "Bakery Development Team",
+  "license": "MIT"
+}

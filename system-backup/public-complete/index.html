@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f59e0b" />
+  <meta name="description" content="ТортоМания - Магически сладки творения и съставки за домашно печене" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  
+  <!-- Preload Google Fonts for Bulgarian support -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <title>ТортоМания - Cake Mania</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta property="og:title" content="ТортоМания - Cake Mania" />
+  <meta property="og:description" content="Автентични български хлябове и сладкиши, правени с любов всеки ден" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://zlatnapekarna.bg/" />
+  <meta property="og:image" content="%PUBLIC_URL%/og-image.jpg" />
+  
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ТортоМания - Cake Mania" />
+  <meta name="twitter:description" content="Автентични български хлябове и сладкиши, правени с любов всеки ден" />
+  <meta name="twitter:image" content="%PUBLIC_URL%/twitter-image.jpg" />
+  
+  <!-- Bulgarian Language Support -->
+  <meta name="language" content="Bulgarian" />
+  <meta name="geo.region" content="BG" />
+  <meta name="geo.placename" content="Sofia" />
+  
+  <!-- PWA Meta Tags -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="ТортоМания" />
+  
+  <!-- Structured Data for Local Business -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "ТортоМания",
+    "alternateName": "Golden Bakery",
+    "description": "Семейна пекарна в София, специализирана в традиционни български хлябове и сладкиши",
+    "url": "https://zlatnapekarna.bg",
+    "telephone": "+359-2-123-4567",
+    "email": "info@zlatnapekarna.bg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Хлебна 15",
+      "addressLocality": "София",
+      "addressCountry": "BG",
+      "postalCode": "1000"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "42.6977",
+      "longitude": "23.3219"
+    },
+    "openingHours": [
+      "Mo-Fr 06:00-20:00",
+      "Sa-Su 07:00-18:00"
+    ],
+    "servesCuisine": "Bulgarian",
+    "priceRange": "$$",
+    "paymentAccepted": ["Cash", "Credit Card", "Revolut"],
+    "currenciesAccepted": "BGN"
+  }
+  </script>
+</head>
+<body>
+  <noscript>
+    <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+      <h1>🍰 ТортоМания</h1>
+      <p>За да използвате нашия уебсайт, моля активирайте JavaScript в браузъра си.</p>
+      <p>You need to enable JavaScript to run this app.</p>
+    </div>
+  </noscript>
+  
+  <div id="root"></div>
+  
+  <!-- Loading animation -->
+  <style>
+    #root:empty::before {
+      content: '';
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 50px;
+      height: 50px;
+      margin: -25px 0 0 -25px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #f59e0b;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    #root:empty::after {
+      content: 'Зареждане на ТортоМания...';
+      position: fixed;
+      top: 60%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      color: #f59e0b;
+      font-size: 18px;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</body>
+</html>

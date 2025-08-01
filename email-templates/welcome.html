@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добре дошли в ТортоМания</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .email-container {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #f59e0b, #ec4899);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .welcome-section {
+            background: #fff5ee;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border-left: 4px solid #f59e0b;
+            text-align: center;
+        }
+        .info-section {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #f59e0b, #ec4899);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            margin: 15px 0;
+        }
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        .benefit-list {
+            text-align: left;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .benefit-item {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+            border-left: 3px solid #f59e0b;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <div class="logo">🍰 ТортоМания</div>
+            <h1 style="margin: 0;">Добре дошли!</h1>
+            <p style="margin: 10px 0; opacity: 0.9;">Вашата сладка история започва тук</p>
+        </div>
+
+        <p>Здравейте <strong>{{firstName}}</strong>,</p>
+        
+        <p>Сърдечно Ви приветстваме в семейството на ТортоМания! Благодарим Ви, че се присъединихте към нашата общност от любители на вкусни и качествени сладки творения.</p>
+
+        <div class="welcome-section">
+            <h2 style="color: #f59e0b; margin-bottom: 20px;">🎉 Добре дошли в ТортоМания!</h2>
+            <p style="font-size: 16px;">Присъединихте се на <strong>{{joinDate}}</strong></p>
+            <p style="background: #f59e0b; color: white; padding: 12px; border-radius: 6px; font-weight: bold; display: inline-block;">
+                🎁 Получавате {{welcomeBonus}} като добре дошли подарък!
+            </p>
+        </div>
+
+        <div class="info-section">
+            <h3>✨ Какво Ви очаква в ТортоМания:</h3>
+            <div class="benefit-list">
+                <div class="benefit-item">
+                    <strong>🍰 Авторски торти</strong><br>
+                    <small>Уникални рецепти и персонализиран дизайн</small>
+                </div>
+                <div class="benefit-item">
+                    <strong>🚚 Безплатна доставка</strong><br>
+                    <small>При поръчки над 50 лв в София</small>
+                </div>
+                <div class="benefit-item">
+                    <strong>⭐ Програма за лоялност</strong><br>
+                    <small>Натрупвайте точки и получавайте награди</small>
+                </div>
+                <div class="benefit-item">
+                    <strong>📱 SMS уведомления</strong><br>
+                    <small>Винаги знайте кога поръчката е готова</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3>🏆 Вашият статус в програмата за лоялност</h3>
+            <p><strong>Текущ статус:</strong> <span style="color: #cd853f; font-weight: bold; text-transform: uppercase;">{{loyaltyTier}}</span></p>
+            <p>С всяка поръчка натрупвате точки, които можете да използвате за отстъпки и специални предложения.</p>
+        </div>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="{{websiteUrl}}" class="button">Започнете пазаруването</a>
+        </div>
+
+        <div class="info-section">
+            <h3>📍 Намерете ни</h3>
+            <p><strong>Адрес:</strong> ул. Витоша 15, София 1000</p>
+            <p><strong>Телефон:</strong> +359 2 123 4567</p>
+            <p><strong>Работно време:</strong> Понеделник - Неделя: 6:00 - 20:00</p>
+            <p><strong>Имейл:</strong> {{supportEmail}}</p>
+        </div>
+
+        <div class="footer">
+            <p>Благодарим Ви, че избрахте ТортоМания!</p>
+            <p>Очакваме първата Ви поръчка с нетърпение.</p>
+            <p>🍰 ТортоМания | ул. Витоша 15, София</p>
+            <p>📞 +359 2 123 4567 | 📧 info@tortomaniya.bg</p>
+            <p><small>
+                Ако не желаете да получавате нашите имейли, можете да се 
+                <a href="{{unsubscribeUrl}}" style="color: #f59e0b;">отпишете тук</a>.
+            </small></p>
+        </div>
+    </div>
+</body>
+</html>
