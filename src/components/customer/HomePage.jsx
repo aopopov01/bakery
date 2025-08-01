@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Heart, Award, Clock, Star, ChefHat, CheckCircle, Sparkles, Flame } from 'lucide-react';
+import { ArrowRight, Heart, Award, Clock, ChefHat, CheckCircle, Sparkles, Flame } from 'lucide-react';
 import { useTranslation } from '../../hooks/useTranslation';
 import { useAppContext } from '../../context/AppContext';
 import ChefHatLogo from '../shared/ChefHatLogo';

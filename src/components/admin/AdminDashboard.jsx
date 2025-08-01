@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BarChart3, Package, ShoppingCart, Users, TrendingUp, Calendar, Star, AlertCircle, Mail, Send, Clock, CheckCircle, XCircle, RefreshCw } from 'lucide-react';
+import { BarChart3, Package, ShoppingCart, Users, TrendingUp, AlertCircle, Mail, Send, Clock, CheckCircle, XCircle, RefreshCw } from 'lucide-react';
 import { useTranslation } from '../../hooks/useTranslation';
 import { useEmailService } from '../../hooks/useEmailService';
 
