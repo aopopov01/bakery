@@ -188,7 +188,7 @@ function ChefHatLogo({ size = 'large', className = '' }) {
           🧁
         </div>
         
-        {/* Crystal ball for magic */}
+        {/* Colorful donut for sweet treats */}
         <div 
           className="absolute text-xs animate-float opacity-80"
           style={{ 
@@ -198,7 +198,7 @@ function ChefHatLogo({ size = 'large', className = '' }) {
             animationDuration: '6s'
           }}
         >
-          🔮
+          🍩
         </div>
         
         {/* Golden sparkles */}
