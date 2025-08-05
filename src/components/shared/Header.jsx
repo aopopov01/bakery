@@ -41,20 +41,20 @@ function Header() {
   }, [location.pathname]);
   
   return (
-    <header className="sticky top-0 z-50 bg-gradient-to-r from-amber-50/95 via-orange-50/95 to-pink-50/95 backdrop-blur-xl border-b-2 border-orange-200 shadow-2xl">
+    <header className="sticky top-0 z-50 bg-gradient-to-r from-bakery-emerald/95 via-bakery-forest/95 to-bakery-light-emerald/95 backdrop-blur-xl border-b-2 border-bakery-gold shadow-2xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
             <div className="relative transform group-hover:scale-110 transition-all duration-300">
               <ChefHatLogo size="medium" />
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full animate-ping"></div>
+              <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-bakery-bright-gold to-bakery-gold rounded-full animate-ping"></div>
             </div>
             <div className="flex flex-col">
-              <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 bg-clip-text text-transparent font-bulgarian">
+              <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-bakery-bright-gold via-bakery-gold to-bakery-soft-gold bg-clip-text text-transparent font-bulgarian">
                 ТортоМания
               </h1>
-              <p className="text-xs text-gray-600 font-medium hidden sm:block">Cake Mania</p>
+              <p className="text-xs text-bakery-cream font-medium hidden sm:block">Сладки & Изкушения</p>
             </div>
           </Link>
           
@@ -178,11 +178,11 @@ function Header() {
             {/* Shopping cart */}
             <button
               onClick={actions.toggleCart}
-              className="relative p-3 bg-gradient-to-r from-emerald-400 to-green-500 hover:from-emerald-500 hover:to-green-600 text-white rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-emerald-300"
+              className="relative p-3 bg-gradient-to-r from-bakery-gold to-bakery-bright-gold hover:from-bakery-bright-gold hover:to-bakery-soft-gold text-bakery-emerald rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-bakery-cream"
             >
               <ShoppingCart className="w-5 h-5" />
               {cartItemsCount > 0 && (
-                <span className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-xs font-bold rounded-full flex items-center justify-center border-2 border-white">
+                <span className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-bakery-emerald to-bakery-forest text-bakery-cream text-xs font-bold rounded-full flex items-center justify-center border-2 border-bakery-gold">
                   {cartItemsCount}
                 </span>
               )}
@@ -192,9 +192,9 @@ function Header() {
             <div className="mobile-menu-container relative">
               <button 
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-2 rounded-lg bg-gradient-to-r from-purple-100 to-indigo-100 hover:from-purple-200 hover:to-indigo-200 border border-purple-200 transition-all duration-200"
+                className="md:hidden p-2 rounded-lg bg-gradient-to-r from-bakery-cream to-bakery-beige hover:from-bakery-beige hover:to-bakery-soft-gold border border-bakery-gold transition-all duration-200"
               >
-                <Menu className="w-5 h-5 text-purple-600" />
+                <Menu className="w-5 h-5 text-bakery-emerald" />
               </button>
             </div>
           </div>

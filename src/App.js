@@ -21,13 +21,14 @@ function App() {
     <AuthProvider>
       <AppProvider>
         <Router>
-        <div className="App min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-pink-50">
-          {/* Colorful background pattern */}
-          <div className="fixed inset-0 opacity-30 pointer-events-none">
-            <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-r from-yellow-300 to-orange-300 rounded-full blur-xl"></div>
-            <div className="absolute top-1/3 right-20 w-40 h-40 bg-gradient-to-r from-pink-300 to-rose-300 rounded-full blur-xl"></div>
-            <div className="absolute bottom-20 left-1/4 w-36 h-36 bg-gradient-to-r from-blue-300 to-cyan-300 rounded-full blur-xl"></div>
-            <div className="absolute bottom-1/3 right-1/3 w-28 h-28 bg-gradient-to-r from-purple-300 to-indigo-300 rounded-full blur-xl"></div>
+        <div className="App min-h-screen bg-gradient-to-br from-bakery-cream via-bakery-beige to-bakery-light-emerald">
+          {/* Elegant storefront background pattern */}
+          <div className="fixed inset-0 opacity-20 pointer-events-none">
+            <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-r from-bakery-gold to-bakery-bright-gold rounded-full blur-xl"></div>
+            <div className="absolute top-1/3 right-20 w-40 h-40 bg-gradient-to-r from-bakery-emerald to-bakery-forest rounded-full blur-xl"></div>
+            <div className="absolute bottom-20 left-1/4 w-36 h-36 bg-gradient-to-r from-bakery-soft-gold to-bakery-cream rounded-full blur-xl"></div>
+            <div className="absolute bottom-1/3 right-1/3 w-28 h-28 bg-gradient-to-r from-bakery-light-emerald to-bakery-emerald rounded-full blur-xl"></div>
+            <div className="absolute top-1/2 left-1/2 w-24 h-24 bg-gradient-to-r from-bakery-gold/30 to-bakery-emerald/30 rounded-full blur-2xl"></div>
           </div>
           
           {/* Main content */}

@@ -12,10 +12,22 @@ module.exports = {
       },
       colors: {
         'bakery': {
-          'warm': '#f59e0b',
-          'sweet': '#ec4899',
-          'fresh': '#10b981',
-          'cool': '#3b82f6'
+          'emerald': '#0f4f3c',
+          'forest': '#1a5c42', 
+          'gold': '#d4af37',
+          'cream': '#f5e6d3',
+          'beige': '#e8d5b7',
+          'dark-emerald': '#0a3d2e',
+          'light-emerald': '#2d6b52',
+          'bright-gold': '#ffd700',
+          'soft-gold': '#f4e4a6'
+        },
+        'storefront': {
+          'primary': '#0f4f3c',
+          'secondary': '#d4af37',
+          'accent': '#f5e6d3',
+          'dark': '#0a3d2e',
+          'light': '#e8d5b7'
         }
       },
       animation: {

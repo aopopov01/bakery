@@ -35,14 +35,14 @@ function HomePage() {
   ];
   
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-pink-50 relative overflow-hidden">
-      {/* Magical floating elements */}
-      <div className="absolute top-20 right-20 w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full opacity-30 animate-pulse"></div>
-      <div className="absolute bottom-20 left-20 w-12 h-12 bg-gradient-to-r from-orange-300 to-red-400 rounded-full opacity-40 animate-bounce"></div>
-      <div className="absolute top-1/3 left-10 text-yellow-400 text-2xl animate-ping" style={{animationDelay: '1s'}}>✨</div>
-      <div className="absolute bottom-1/3 right-10 text-orange-400 text-xl animate-pulse" style={{animationDelay: '2s'}}>🌟</div>
-      <div className="absolute top-1/2 left-1/4 text-pink-400 text-lg animate-bounce" style={{animationDelay: '3s'}}>🍰</div>
-      <div className="absolute bottom-1/4 right-1/4 text-amber-400 text-xl animate-ping" style={{animationDelay: '0.5s'}}>🧁</div>
+    <div className="min-h-screen bg-gradient-to-br from-bakery-cream via-bakery-beige to-bakery-light-emerald relative overflow-hidden">
+      {/* Elegant storefront floating elements */}
+      <div className="absolute top-20 right-20 w-16 h-16 bg-gradient-to-r from-bakery-gold to-bakery-bright-gold rounded-full opacity-30 animate-pulse"></div>
+      <div className="absolute bottom-20 left-20 w-12 h-12 bg-gradient-to-r from-bakery-emerald to-bakery-forest rounded-full opacity-40 animate-bounce"></div>
+      <div className="absolute top-1/3 left-10 text-bakery-gold text-2xl animate-ping" style={{animationDelay: '1s'}}>✨</div>
+      <div className="absolute bottom-1/3 right-10 text-bakery-bright-gold text-xl animate-pulse" style={{animationDelay: '2s'}}>🌟</div>
+      <div className="absolute top-1/2 left-1/4 text-bakery-gold text-lg animate-bounce" style={{animationDelay: '3s'}}>🍰</div>
+      <div className="absolute bottom-1/4 right-1/4 text-bakery-bright-gold text-xl animate-ping" style={{animationDelay: '0.5s'}}>🧁</div>
       
       {/* Hero Section */}
       <section className="relative py-20 z-10">
@@ -53,10 +53,10 @@ function HomePage() {
               <div className="mb-6 transform hover:scale-110 transition-all duration-500">
                 <ChefHatLogo size="large" className="mx-auto" />
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-amber-400 to-orange-600 bg-clip-text text-transparent mb-4 drop-shadow-lg">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold bg-gradient-to-r from-bakery-bright-gold via-bakery-gold to-bakery-soft-gold bg-clip-text text-transparent mb-4 drop-shadow-lg">
                 ТортоМания
               </h1>
-              <p className="text-lg sm:text-xl md:text-2xl text-gray-700 font-medium max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg sm:text-xl md:text-2xl text-bakery-emerald font-medium max-w-3xl mx-auto leading-relaxed">
                 {t('home.hero.subtitle')}
               </p>
             </div>
@@ -64,8 +64,8 @@ function HomePage() {
             {/* CTA Button */}
             <div className="mb-12">
               <Link to="/products">
-                <button className="relative bg-gradient-to-r from-amber-500 to-orange-600 text-white text-lg px-10 py-5 rounded-2xl font-bold shadow-2xl hover:shadow-amber-500/50 transform hover:scale-110 transition-all duration-300 inline-flex items-center space-x-3 overflow-hidden group">
-                  <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <button className="relative bg-gradient-to-r from-bakery-gold to-bakery-bright-gold text-bakery-emerald text-lg px-10 py-5 rounded-2xl font-bold shadow-2xl hover:shadow-bakery-gold/50 transform hover:scale-110 transition-all duration-300 inline-flex items-center space-x-3 overflow-hidden group">
+                  <div className="absolute inset-0 bg-gradient-to-r from-bakery-bright-gold to-bakery-soft-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <span className="relative z-10">{t('home.hero.cta')}</span>
                   <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform relative z-10" />
                 </button>
@@ -76,20 +76,20 @@ function HomePage() {
       </section>
 
       {/* Featured Products Preview */}
-      <section className="py-16 bg-white/40 backdrop-blur-sm relative z-10">
+      <section className="py-16 bg-bakery-cream/40 backdrop-blur-sm relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-bakery-emerald mb-4">
               Нашите топ продукти
             </h2>
-            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-bakery-forest max-w-2xl mx-auto">
               Открийте най-обичаните от нашите клиенти сладки творения
             </p>
           </div>
           
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8">
             {sampleProducts.map((product, index) => (
-              <div key={product.id} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+              <div key={product.id} className="bg-bakery-cream rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group border-2 border-bakery-gold/20">
                 <div className="h-48 relative overflow-hidden">
                   <img 
                     src={product.image} 
@@ -99,18 +99,18 @@ function HomePage() {
                       e.target.src = 'https://via.placeholder.com/400x300/f59e0b/ffffff?text=🍞';
                     }}
                   />
-                  <div className="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                  <div className="absolute top-4 right-4 bg-gradient-to-r from-bakery-gold to-bakery-bright-gold text-bakery-emerald px-3 py-1 rounded-full text-sm font-bold">
                     {index === 0 ? 'Хит' : index === 1 ? 'Ново' : 'Топ'}
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">{product.name.bg}</h3>
-                  <p className="text-gray-600 mb-4">{product.description.bg}</p>
+                  <h3 className="text-xl font-bold text-bakery-emerald mb-2">{product.name.bg}</h3>
+                  <p className="text-bakery-forest mb-4">{product.description.bg}</p>
                   <div className="flex justify-between items-center">
-                    <span className="text-2xl font-bold text-green-600">{product.price.toFixed(2).replace('.', ',')} лв</span>
+                    <span className="text-2xl font-bold text-bakery-emerald">{product.price.toFixed(2).replace('.', ',')} лв</span>
                     <button
                       onClick={() => actions.addToCart(product)}
-                      className="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-4 py-2 rounded-lg font-bold hover:from-amber-600 hover:to-orange-700 transition-all"
+                      className="bg-gradient-to-r from-bakery-gold to-bakery-bright-gold text-bakery-emerald px-4 py-2 rounded-lg font-bold hover:from-bakery-bright-gold hover:to-bakery-soft-gold transition-all"
                     >
                       Добави
                     </button>
@@ -122,7 +122,7 @@ function HomePage() {
           
           <div className="text-center">
             <Link to="/products">
-              <button className="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-8 py-3 rounded-xl font-bold hover:from-amber-600 hover:to-orange-700 transition-all transform hover:scale-105">
+              <button className="bg-gradient-to-r from-bakery-emerald to-bakery-forest text-bakery-cream px-8 py-3 rounded-xl font-bold hover:from-bakery-forest hover:to-bakery-light-emerald transition-all transform hover:scale-105 border-2 border-bakery-gold">
                 Виж всички продукти
               </button>
             </Link>
@@ -131,59 +131,59 @@ function HomePage() {
       </section>
 
       {/* Customer Testimonials */}
-      <section className="py-16 bg-white/40 backdrop-blur-sm relative z-10">
+      <section className="py-16 bg-bakery-beige/40 backdrop-blur-sm relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-bakery-emerald mb-4">
               Какво казват нашите клиенти
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-bakery-forest">
               Истински отзиви от доволни клиенти
             </p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl p-6 shadow-lg">
+            <div className="bg-bakery-cream rounded-2xl p-6 shadow-lg border-2 border-bakery-gold/20">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                <div className="w-12 h-12 bg-gradient-to-br from-bakery-gold to-bakery-bright-gold rounded-full flex items-center justify-center text-bakery-emerald font-bold text-lg">
                   М
                 </div>
                 <div className="ml-4">
-                  <h4 className="font-bold text-gray-800">Мария Петрова</h4>
-                  <div className="flex text-amber-500">★★★★★</div>
+                  <h4 className="font-bold text-bakery-emerald">Мария Петрова</h4>
+                  <div className="flex text-bakery-gold">★★★★★</div>
                 </div>
               </div>
-              <p className="text-gray-600 italic">
+              <p className="text-bakery-forest italic">
                 "Невероятни торти! Поръчвах за рождения ден на дъщеря ми и всички гости бяха възхитени. Качеството е на най-високо ниво!"
               </p>
             </div>
             
-            <div className="bg-white rounded-2xl p-6 shadow-lg">
+            <div className="bg-bakery-cream rounded-2xl p-6 shadow-lg border-2 border-bakery-gold/20">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                <div className="w-12 h-12 bg-gradient-to-br from-bakery-emerald to-bakery-forest rounded-full flex items-center justify-center text-bakery-cream font-bold text-lg">
                   И
                 </div>
                 <div className="ml-4">
-                  <h4 className="font-bold text-gray-800">Иван Георгиев</h4>
-                  <div className="flex text-amber-500">★★★★★</div>
+                  <h4 className="font-bold text-bakery-emerald">Иван Георгиев</h4>
+                  <div className="flex text-bakery-gold">★★★★★</div>
                 </div>
               </div>
-              <p className="text-gray-600 italic">
+              <p className="text-bakery-forest italic">
                 "Винаги поръчвам от ТортоМания за специални случаи. Вкусът и качеството са непревзойдени, а обслужването е перфектно!"
               </p>
             </div>
             
-            <div className="bg-white rounded-2xl p-6 shadow-lg">
+            <div className="bg-bakery-cream rounded-2xl p-6 shadow-lg border-2 border-bakery-gold/20">
               <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-red-400 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                <div className="w-12 h-12 bg-gradient-to-br from-bakery-light-emerald to-bakery-emerald rounded-full flex items-center justify-center text-bakery-cream font-bold text-lg">
                   Е
                 </div>
                 <div className="ml-4">
-                  <h4 className="font-bold text-gray-800">Елена Димитрова</h4>
-                  <div className="flex text-amber-500">★★★★★</div>
+                  <h4 className="font-bold text-bakery-emerald">Елена Димитрова</h4>
+                  <div className="flex text-bakery-gold">★★★★★</div>
                 </div>
               </div>
-              <p className="text-gray-600 italic">
+              <p className="text-bakery-forest italic">
                 "Макароните са като от Париж! Изключително вкусни и красиви. Препоръчвам на всички любители на качествените десерти."
               </p>
             </div>
