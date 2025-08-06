@@ -17,6 +17,13 @@
       }
     },
     {
+      "src": "/(.*\\.(mp4|webm|ogg|avi|mov))",
+      "headers": {
+        "cache-control": "s-maxage=31536000,immutable",
+        "content-type": "video/mp4"
+      }
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }

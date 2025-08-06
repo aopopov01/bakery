@@ -16,7 +16,7 @@ const translations = {
     // Home page
     home: {
       hero: {
-        title: 'Добре дошли в ТортоМания',
+        title: 'Добре дошли в CakeMania',
         subtitle: 'Магически сладки творения и съставки за домашно печене',
         cta: 'Разгледай продуктите',
         freshDaily: 'Пресни всеки ден',
@@ -119,7 +119,7 @@ const translations = {
     
     // Footer
     footer: {
-      about: 'За ТортоМания',
+      about: 'За CakeMania',
       aboutText: 'Семейна пекарна, която вече 25 години приготвя най-вкусните хлябове и сладкиши в града.',
       contact: 'Контакти',
       address: 'ул. "Хлебна" №15, София',
@@ -297,8 +297,14 @@ export function useTranslation() {
   };
   
   const formatPrice = (price) => {
-    const formattedPrice = price.toFixed(2).replace('.', ',');
-    return language === 'bg' ? `${formattedPrice} лв` : `${formattedPrice} BGN`;
+    const exchangeRate = 1.95583; // 1 EUR = 1.95583 лева
+    const priceInEuro = (price / exchangeRate).toFixed(2);
+    const formattedBgn = price.toFixed(2).replace('.', ',');
+    const formattedEur = priceInEuro.replace('.', ',');
+    
+    return language === 'bg' 
+      ? `${formattedBgn} лв / €${formattedEur}` 
+      : `${formattedBgn} BGN / €${formattedEur}`;
   };
   
   const formatWeight = (weight) => {

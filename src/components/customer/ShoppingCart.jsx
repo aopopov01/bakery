@@ -84,7 +84,7 @@ function ShoppingCartPage() {
                       <p className="text-gray-600 text-sm mb-2">
                         {item.description?.bg || 'Product description'}
                       </p>
-                      <div className="text-lg font-bold text-emerald-600">
+                      <div className="text-lg font-bold text-storefront-deep-green">
                         {formatPrice(item.price)}
                       </div>
                     </div>
@@ -93,7 +93,7 @@ function ShoppingCartPage() {
                     <div className="flex items-center space-x-3">
                       <button
                         onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                        className="w-10 h-10 bg-gradient-to-r from-red-400 to-pink-500 hover:from-red-500 hover:to-pink-600 text-white rounded-xl flex items-center justify-center transition-all transform hover:scale-105"
+                        className="w-10 h-10 bg-gradient-to-r from-storefront-bronze to-complement-warm-brown hover:from-complement-warm-brown hover:to-storefront-bronze text-white rounded-xl flex items-center justify-center transition-all transform hover:scale-105"
                       >
                         <Minus className="w-4 h-4" />
                       </button>
@@ -104,7 +104,7 @@ function ShoppingCartPage() {
                       
                       <button
                         onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                        className="w-10 h-10 bg-gradient-to-r from-emerald-400 to-green-500 hover:from-emerald-500 hover:to-green-600 text-white rounded-xl flex items-center justify-center transition-all transform hover:scale-105"
+                        className="w-10 h-10 bg-gradient-to-r from-storefront-sage to-storefront-teal hover:from-storefront-teal hover:to-storefront-sage text-white rounded-xl flex items-center justify-center transition-all transform hover:scale-105"
                       >
                         <Plus className="w-4 h-4" />
                       </button>
@@ -112,12 +112,12 @@ function ShoppingCartPage() {
                     
                     {/* Item Total */}
                     <div className="text-right min-w-[100px]">
-                      <div className="text-xl font-bold text-gray-800">
+                      <div className="text-xl font-bold text-storefront-deep-green">
                         {formatPrice(item.price * item.quantity)}
                       </div>
                       <button
                         onClick={() => actions.removeFromCart(item.id)}
-                        className="text-red-500 hover:text-red-700 mt-2 p-2 hover:bg-red-50 rounded-lg transition-all"
+                        className="text-complement-cocoa hover:text-storefront-bronze mt-2 p-2 hover:bg-complement-blush rounded-lg transition-all"
                         title={t('cart.remove')}
                       >
                         <Trash2 className="w-4 h-4" />
@@ -162,7 +162,7 @@ function ShoppingCartPage() {
                   <span className="text-gray-700">{t('cart.delivery')}:</span>
                   <span className="font-semibold">
                     {deliveryFee === 0 ? (
-                      <span className="text-emerald-600">Безплатна</span>
+                      <span className="text-storefront-deep-green font-bold">Безплатна</span>
                     ) : (
                       formatPrice(deliveryFee)
                     )}
@@ -170,7 +170,7 @@ function ShoppingCartPage() {
                 </div>
                 
                 {deliveryFee > 0 && (
-                  <p className="text-sm text-gray-600 bg-blue-50 p-3 rounded-lg">
+                  <p className="text-sm text-gray-600 bg-storefront-cream p-3 rounded-lg">
                     💡 Безплатна доставка при поръчка над {formatPrice(20)}
                   </p>
                 )}
@@ -179,7 +179,7 @@ function ShoppingCartPage() {
                 
                 <div className="flex justify-between text-xl font-bold">
                   <span className="text-gray-800">{t('cart.total')}:</span>
-                  <span className="text-emerald-600">{formatPrice(finalTotal)}</span>
+                  <span className="text-storefront-deep-green font-bold">{formatPrice(finalTotal)}</span>
                 </div>
               </div>
               
@@ -204,7 +204,7 @@ function ShoppingCartPage() {
                   <div className="w-12 h-8 bg-gradient-to-r from-purple-600 to-indigo-600 rounded text-white text-xs flex items-center justify-center font-bold">
                     REV
                   </div>
-                  <div className="w-12 h-8 bg-gradient-to-r from-green-600 to-emerald-600 rounded text-white text-xs flex items-center justify-center font-bold">
+                  <div className="w-12 h-8 bg-gradient-to-r from-storefront-sage to-storefront-teal rounded text-white text-xs flex items-center justify-center font-bold">
                     €
                   </div>
                 </div>

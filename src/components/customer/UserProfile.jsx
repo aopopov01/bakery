@@ -291,7 +291,7 @@ const UserProfile = () => {
                 </div>
                 <div className="flex justify-between items-center py-2">
                   <span className="text-gray-600">Статус:</span>
-                  <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-sm font-medium">
+                  <span className="bg-storefront-cream text-storefront-deep-green px-2 py-1 rounded-full text-sm font-medium">
                     Активен
                   </span>
                 </div>

@@ -32,9 +32,9 @@ function AdminDashboard() {
   
   const getStatusColor = (status) => {
     switch (status) {
-      case 'pending': return 'bg-yellow-100 text-yellow-800 border-yellow-200';
-      case 'preparing': return 'bg-blue-100 text-blue-800 border-blue-200';
-      case 'ready': return 'bg-emerald-100 text-emerald-800 border-emerald-200';
+      case 'pending': return 'bg-storefront-cream text-storefront-bronze border-storefront-gold';
+      case 'preparing': return 'bg-storefront-ivory text-storefront-deep-green border-storefront-sage';
+      case 'ready': return 'bg-complement-blush text-storefront-forest border-storefront-teal';
       case 'delivered': return 'bg-gray-100 text-gray-800 border-gray-200';
       default: return 'bg-gray-100 text-gray-800 border-gray-200';
     }
@@ -59,7 +59,7 @@ function AdminDashboard() {
             Администрация
           </h1>
           <p className="text-xl text-gray-600 mb-6">
-            Добре дошли в административния панел на ТортоМания
+            Добре дошли в административния панел на CakeMania
           </p>
           
           {/* Navigation Tabs */}
@@ -139,7 +139,7 @@ function AdminDashboard() {
                   </thead>
                   <tbody>
                     {recentOrders.map((order, index) => (
-                      <tr key={index} className="border-b border-gray-100 hover:bg-blue-50 transition-colors">
+                      <tr key={index} className="border-b border-gray-100 hover:bg-storefront-cream transition-colors">
                         <td className="py-4 px-2">
                           <span className="font-bold text-blue-600">{order.id}</span>
                         </td>
@@ -238,7 +238,7 @@ function AdminDashboard() {
                 <p className="text-yellow-700 mb-3">
                   3 продукта имат ниски наличности и се нуждаят от попълване.
                 </p>
-                <button className="bg-yellow-600 hover:bg-yellow-700 text-white font-bold px-4 py-2 rounded-lg transition-colors">
+                <button className="bg-storefront-gold hover:bg-storefront-warm-gold text-storefront-deep-green font-bold px-4 py-2 rounded-lg transition-colors">
                   Виж подробности
                 </button>
               </div>
@@ -319,7 +319,7 @@ function AdminDashboard() {
                         {isProcessing ? 'Системата обработва имейли...' : 'Системата е готова'}
                       </p>
                     </div>
-                    <div className={`w-4 h-4 rounded-full ${isProcessing ? 'bg-blue-500 animate-pulse' : 'bg-green-500'}`}></div>
+                    <div className={`w-4 h-4 rounded-full ${isProcessing ? 'bg-storefront-gold animate-pulse' : 'bg-storefront-sage'}`}></div>
                   </div>
 
                   <div className="flex space-x-3">

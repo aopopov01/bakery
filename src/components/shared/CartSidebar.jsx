@@ -31,11 +31,11 @@ function CartSidebar() {
       />
       
       {/* Sidebar */}
-      <div className="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform transition-transform duration-300">
+      <div className="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform transition-transform duration-300 overflow-y-auto pb-20">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b-2 border-orange-200 bg-gradient-to-r from-amber-50 to-orange-50">
+        <div className="flex items-center justify-between p-6 border-b-2 border-storefront-gold bg-gradient-to-r from-storefront-cream to-storefront-ivory">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-r from-emerald-400 to-green-500 rounded-xl flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-r from-storefront-sage to-storefront-teal rounded-xl flex items-center justify-center">
               <ShoppingBag className="w-5 h-5 text-white" />
             </div>
             <div>
@@ -94,10 +94,10 @@ function CartSidebar() {
                       
                       {/* Product Info */}
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-bold text-gray-800 mb-1 truncate">
+                        <h3 className="font-bold text-gray-800 mb-1 leading-tight">
                           {item.name?.bg || 'Product Name'}
                         </h3>
-                        <div className="text-sm font-bold text-emerald-600 mb-2">
+                        <div className="text-sm font-bold text-storefront-deep-green mb-2">
                           {formatPrice(item.price)}
                         </div>
                         
@@ -105,7 +105,7 @@ function CartSidebar() {
                         <div className="flex items-center space-x-2">
                           <button
                             onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                            className="w-8 h-8 bg-gradient-to-r from-red-400 to-pink-500 hover:from-red-500 hover:to-pink-600 text-white rounded-lg flex items-center justify-center transition-all"
+                            className="w-8 h-8 bg-gradient-to-r from-storefront-bronze to-complement-warm-brown hover:from-complement-warm-brown hover:to-storefront-bronze text-white rounded-lg flex items-center justify-center transition-all"
                           >
                             <Minus className="w-3 h-3" />
                           </button>
@@ -116,14 +116,14 @@ function CartSidebar() {
                           
                           <button
                             onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                            className="w-8 h-8 bg-gradient-to-r from-emerald-400 to-green-500 hover:from-emerald-500 hover:to-green-600 text-white rounded-lg flex items-center justify-center transition-all"
+                            className="w-8 h-8 bg-gradient-to-r from-storefront-sage to-storefront-teal hover:from-storefront-teal hover:to-storefront-sage text-white rounded-lg flex items-center justify-center transition-all"
                           >
                             <Plus className="w-3 h-3" />
                           </button>
                           
                           <button
                             onClick={() => actions.removeFromCart(item.id)}
-                            className="w-8 h-8 bg-gradient-to-r from-gray-400 to-gray-500 hover:from-red-400 hover:to-red-500 text-white rounded-lg flex items-center justify-center transition-all ml-2"
+                            className="w-8 h-8 bg-white hover:bg-gradient-to-r hover:from-red-400 hover:to-red-500 text-complement-cocoa hover:text-white border-2 border-complement-cocoa hover:border-transparent rounded-lg flex items-center justify-center transition-all ml-2"
                           >
                             <Trash2 className="w-3 h-3" />
                           </button>
@@ -132,7 +132,7 @@ function CartSidebar() {
                       
                       {/* Item Total */}
                       <div className="text-right">
-                        <div className="font-bold text-gray-800">
+                        <div className="font-bold text-storefront-deep-green">
                           {formatPrice(item.price * item.quantity)}
                         </div>
                       </div>
@@ -142,7 +142,7 @@ function CartSidebar() {
               </div>
               
               {/* Cart Footer */}
-              <div className="border-t-2 border-orange-200 bg-gradient-to-r from-amber-50 to-orange-50 p-6">
+              <div className="border-t-2 border-storefront-gold bg-gradient-to-r from-storefront-cream to-storefront-ivory p-6">
                 {/* Order Summary */}
                 <div className="space-y-3 mb-6">
                   <div className="flex justify-between text-sm">
@@ -154,7 +154,7 @@ function CartSidebar() {
                     <span className="text-gray-700">{t('cart.delivery')}:</span>
                     <span className="font-semibold">
                       {deliveryFee === 0 ? (
-                        <span className="text-emerald-600">Безплатна</span>
+                        <span className="text-storefront-deep-green font-bold">Безплатна</span>
                       ) : (
                         formatPrice(deliveryFee)
                       )}
@@ -162,16 +162,16 @@ function CartSidebar() {
                   </div>
                   
                   {deliveryFee > 0 && (
-                    <p className="text-xs text-gray-600 bg-blue-50 p-2 rounded-lg">
+                    <p className="text-xs text-gray-600 bg-storefront-cream p-2 rounded-lg">
                       💡 Безплатна доставка при поръчка над {formatPrice(20)}
                     </p>
                   )}
                   
-                  <hr className="border-gray-300" />
+                  <hr className="border-storefront-gold/30" />
                   
                   <div className="flex justify-between text-lg font-bold">
                     <span className="text-gray-800">{t('cart.total')}:</span>
-                    <span className="text-emerald-600">{formatPrice(finalTotal)}</span>
+                    <span className="text-storefront-deep-green font-bold">{formatPrice(finalTotal)}</span>
                   </div>
                 </div>
                 

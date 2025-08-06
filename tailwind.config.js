@@ -11,23 +11,35 @@ module.exports = {
         'display': ['Comfortaa', 'Inter', 'sans-serif']
       },
       colors: {
-        'bakery': {
-          'emerald': '#0f4f3c',
-          'forest': '#1a5c42', 
-          'gold': '#d4af37',
-          'cream': '#f5e6d3',
-          'beige': '#e8d5b7',
-          'dark-emerald': '#0a3d2e',
-          'light-emerald': '#2d6b52',
-          'bright-gold': '#ffd700',
-          'soft-gold': '#f4e4a6'
-        },
         'storefront': {
-          'primary': '#0f4f3c',
-          'secondary': '#d4af37',
-          'accent': '#f5e6d3',
-          'dark': '#0a3d2e',
-          'light': '#e8d5b7'
+          'deep-green': '#1a4a3a',
+          'rich-green': '#2d5a47',
+          'sage': '#4a6b5c',
+          'forest': '#164339',
+          'gold': '#d4af37',
+          'warm-gold': '#e8c547',
+          'rich-gold': '#b8941f',
+          'bronze': '#a67c2a',
+          'teal': '#4a8b8b',
+          'cream': '#f8f5f0',
+          'ivory': '#faf8f3',
+          'pearl': '#f5f2ed',
+          'champagne': '#f7f4e8'
+        },
+        'complement': {
+          'soft-pink': '#e8d5d1',
+          'blush': '#f0e6e3',
+          'warm-brown': '#8b6f47',
+          'cocoa': '#6b5239',
+          'rose-gold': '#e8b4a0',
+          'dusty-rose': '#d4a5a5'
+        },
+        'refined': {
+          'primary': '#3a6b58',
+          'secondary': '#c9a876',
+          'accent': '#f7f1e8',
+          'muted': '#5d8470',
+          'subtle': '#e8dfc6'
         }
       },
       animation: {

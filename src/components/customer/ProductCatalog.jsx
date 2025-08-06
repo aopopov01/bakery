@@ -191,11 +191,6 @@ function ProductCatalog() {
   
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-pink-50 py-8 relative overflow-hidden">
-      {/* Magical floating elements */}
-      <div className="absolute top-20 right-20 w-16 h-16 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full opacity-30 animate-pulse"></div>
-      <div className="absolute bottom-20 left-20 w-12 h-12 bg-gradient-to-r from-orange-300 to-red-400 rounded-full opacity-40 animate-bounce"></div>
-      <div className="absolute top-1/3 left-10 text-yellow-400 text-2xl animate-ping" style={{animationDelay: '1s'}}>✨</div>
-      <div className="absolute bottom-1/3 right-10 text-orange-400 text-xl animate-pulse" style={{animationDelay: '2s'}}>🌟</div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -219,7 +214,7 @@ function ProductCatalog() {
                 placeholder={t('products.search')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all"
+                className="w-full pl-12 pr-4 py-3 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-storefront-gold focus:border-transparent transition-all"
               />
             </div>
             
@@ -231,8 +226,8 @@ function ProductCatalog() {
                   onClick={() => setSelectedCategory(category.id)}
                   className={`px-4 py-2 rounded-xl font-medium transition-all ${
                     selectedCategory === category.id
-                      ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg'
-                      : 'bg-white/80 text-gray-700 hover:bg-orange-100 border border-orange-200'
+                      ? 'bg-gradient-to-r from-storefront-gold to-storefront-warm-gold text-storefront-deep-green shadow-lg font-bold'
+                      : 'bg-white/80 text-gray-700 hover:bg-storefront-cream border border-storefront-gold'
                   }`}
                 >
                   {category.name[language]}
@@ -245,7 +240,7 @@ function ProductCatalog() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-4 py-2 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="px-4 py-2 bg-white border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-storefront-gold"
               >
                 <option value="featured">Препоръчани</option>
                 <option value="name">По име</option>
@@ -257,13 +252,13 @@ function ProductCatalog() {
               <div className="flex bg-white rounded-xl border-2 border-gray-200">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-2 rounded-l-xl ${viewMode === 'grid' ? 'bg-orange-500 text-white' : 'text-gray-600 hover:bg-gray-100'}`}
+                  className={`p-2 rounded-l-xl ${viewMode === 'grid' ? 'bg-storefront-gold text-storefront-deep-green' : 'text-gray-600 hover:bg-gray-100'}`}
                 >
                   <Grid className="w-5 h-5" />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`p-2 rounded-r-xl ${viewMode === 'list' ? 'bg-orange-500 text-white' : 'text-gray-600 hover:bg-gray-100'}`}
+                  className={`p-2 rounded-r-xl ${viewMode === 'list' ? 'bg-storefront-gold text-storefront-deep-green' : 'text-gray-600 hover:bg-gray-100'}`}
                 >
                   <List className="w-5 h-5" />
                 </button>
@@ -316,7 +311,7 @@ function ProductCatalog() {
               <div className={`p-6 ${viewMode === 'list' ? 'flex-1' : ''}`}>
                 <div className={`${viewMode === 'list' ? 'flex justify-between items-start' : ''}`}>
                   <div className={viewMode === 'list' ? 'flex-1 pr-6' : ''}>
-                    <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-orange-600 transition-colors">
+                    <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-storefront-gold transition-colors">
                       {product.name[language]}
                     </h3>
                     <p className="text-gray-600 mb-4 leading-relaxed">

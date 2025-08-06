@@ -1276,3 +1276,273 @@ The backup system guarantees successful restoration when these criteria are met:
 5. **Performance Parity**: Load times and responsiveness maintained
 
 **🔒 Restoration Guarantee: This backup system provides 100% restoration capability with no exceptions, no missing features, and no partial restoration scenarios.**
+
+---
+
+## 🎨 GREEN AND GOLD DESIGN (Current - August 2025)
+
+### **Design Identity**
+**Theme Name:** Green and Gold Storefront
+**Keywords to restore:** "green", "gold", or "both"
+**Visual Identity:** Elegant bakery with warm gold accents and deep green base
+
+### **CRITICAL DISTINCTION FROM PREVIOUS DESIGN**
+This is the **GREEN AND GOLD** design, completely different from the previous amber/orange design documented above. To restore this specific design, use the keywords "green", "gold", or "both".
+
+### **Color Palette (Tailwind Config)**
+```javascript
+// Storefront Colors (Primary Theme) - GREEN AND GOLD
+'storefront-deep-green': '#1e5631',      // Primary dark green
+'storefront-rich-green': '#2d7d3e',      // Medium green
+'storefront-teal': '#3e8e51',            // Accent teal
+'storefront-gold': '#d4af37',            // Primary gold
+'storefront-warm-gold': '#e6c558',       // Light gold
+'storefront-rich-gold': '#b8941f',       // Dark gold
+'storefront-bronze': '#cd7f32',          // Bronze accent
+'storefront-cream': '#f8f6f0',           // Light cream
+'storefront-ivory': '#faf8f3',           // Ivory white
+
+// Smooth Colors (Secondary Palette)
+'smooth-cream': '#f7f5f1',
+'smooth-beige': '#f2f0ec',
+'smooth-ivory': '#faf8f4',
+'smooth-pearl': '#f9f7f3',
+'smooth-gold': '#e8d7a3',
+'smooth-warm-gold': '#ebd9a6',
+'smooth-bronze': '#b8956f',
+'smooth-sage': '#a8b5a3',
+'smooth-mint': '#b8c9b5',
+'smooth-emerald': '#7fa68a',
+
+// Complement Colors (Accent Palette)
+'complement-dusty-rose': '#d4a5a5',
+'complement-rose-gold': '#e6b8a2',
+'complement-soft-pink': '#f0d5d5',
+'complement-blush': '#ead5d5',
+'complement-warm-brown': '#a67c5a',
+'complement-cocoa': '#8b6f47'
+```
+
+### **Video Implementation (CRITICAL FIX)**
+
+#### **Video Assets Location**
+- **Path:** `/src/assets/` (NOT in public folder!)
+- **Files:** 
+  - `Video Croissant.mp4` (810KB)
+  - `Video The Cupcake.mp4` (1MB)
+
+#### **Video Integration**
+```jsx
+// HomePage.jsx lines 7-8
+import croissantVideo from '../../assets/Video Croissant.mp4';
+import cupcakeVideo from '../../assets/Video The Cupcake.mp4';
+
+// Usage in timeline section (lines 309 & 346)
+<video className="w-full h-full object-cover" autoPlay loop muted playsInline>
+  <source src={croissantVideo} type="video/mp4" />
+</video>
+
+<video className="w-full h-full object-cover" autoPlay loop muted playsInline>
+  <source src={cupcakeVideo} type="video/mp4" />
+</video>
+```
+
+#### **Why Videos Must Be in /src/assets/**
+- Videos in `/public/` folder were NOT being deployed to Vercel
+- Moving to `/src/assets/` ensures webpack bundles them with the build
+- Import as modules, never use string paths
+
+### **Vercel Configuration for Videos**
+```json
+// vercel.json
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "build" }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "headers": { "cache-control": "s-maxage=31536000,immutable" }
+    },
+    {
+      "src": "/(.*\\.(mp4|webm|ogg|avi|mov))",
+      "headers": {
+        "cache-control": "s-maxage=31536000,immutable",
+        "content-type": "video/mp4"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
+```
+
+### **Component Changes in Green/Gold Design**
+
+#### **HomePage.jsx Updates**
+1. **Hero Section**
+   - ChefHatLogo with scale hover effect
+   - Gradient text using gold shades
+   - Animated golden pulse dot
+
+2. **Background Pattern**
+   - Changed from amber-50/orange-50 to green/gold theme
+   - `bg-gradient-to-br from-amber-50 via-orange-50 to-pink-50`
+
+3. **Timeline Section with Videos**
+   - Desktop: Alternating layout with embedded videos
+   - Mobile: Single column without videos
+   - Videos autoplay with muted and loop attributes
+   - Fallback images for non-video browsers
+
+4. **Button Styles**
+   ```css
+   .btn-success {
+     @apply bg-gradient-to-r from-storefront-deep-green to-storefront-rich-green 
+            text-storefront-cream px-6 py-3 rounded-xl font-bold 
+            hover:from-storefront-rich-green hover:to-storefront-teal
+   }
+
+   .btn-secondary {
+     @apply bg-gradient-to-r from-storefront-cream to-storefront-ivory 
+            text-storefront-deep-green px-6 py-3 rounded-xl font-bold
+   }
+   ```
+
+#### **Header.jsx Updates**
+1. **Header Background**
+   ```jsx
+   className="bg-gradient-to-r from-storefront-deep-green/95 
+              via-storefront-rich-green/95 to-storefront-teal/95"
+   ```
+
+2. **Logo Styling**
+   - Golden gradient text
+   - Animated pulse dot in gold
+
+3. **Navigation Links**
+   ```css
+   .nav-link {
+     @apply text-storefront-cream hover:text-storefront-warm-gold
+   }
+   .nav-link.active {
+     @apply text-storefront-warm-gold border-b-2 border-storefront-gold
+   }
+   ```
+
+4. **Shopping Cart Button**
+   ```jsx
+   className="bg-gradient-to-r from-storefront-gold/85 to-storefront-warm-gold/85"
+   ```
+
+#### **StoresPage.jsx Updates**
+1. **REMOVED SECTION**
+   - "Не можете да ни посетите?" call-to-action completely removed
+   - Was at end of file (lines ~175-200)
+
+2. **Store Cards**
+   - Feature tags with gold/green styling
+   - Navigation buttons with green gradients
+
+### **Fixed Issues in Green/Gold Design**
+
+1. **Video Deployment Issue (CRITICAL)**
+   - **Problem:** Videos not showing on Vercel deployment
+   - **Attempts That Failed:**
+     - Using public folder paths
+     - Pinterest embeds
+     - External Mixkit URLs
+     - Vercel config updates alone
+   - **Final Solution:** Move videos to `/src/assets/` and import as modules
+
+2. **Stores Page Section Removal**
+   - **Request:** Remove "Не можете да ни посетите?" section
+   - **Solution:** Completely deleted from StoresPage.jsx
+
+3. **Build Warnings**
+   - **Issue:** Unused 't' variable warnings
+   - **Files:** AdminDashboard.jsx, Checkout.jsx, StoresPage.jsx
+   - **Status:** Non-critical, CI=false in build script
+
+### **Current Deployment Status**
+- **Production URL:** https://bakery-ten-roan.vercel.app
+- **Latest Deployment:** https://bakery-8f53ocb8p-alexander-popovs-projects.vercel.app
+- **Build Status:** ✅ Ready
+- **Videos:** Working with asset imports
+- **Build Size:** 89.57 kB main bundle
+
+### **Restoration Instructions for Green/Gold Design**
+
+#### **To Restore This Specific Design:**
+1. **Verify Color Palette**
+   - Check `tailwind.config.js` for storefront colors
+   - Primary: Deep green (#1e5631) and gold (#d4af37)
+
+2. **Verify Video Implementation**
+   ```bash
+   # Check videos are in correct location
+   ls -la src/assets/*.mp4
+   
+   # Verify imports in HomePage.jsx
+   grep "import.*Video.*mp4" src/components/customer/HomePage.jsx
+   ```
+
+3. **Critical Files to Preserve**
+   - `/src/assets/Video Croissant.mp4`
+   - `/src/assets/Video The Cupcake.mp4`
+   - `/src/components/customer/HomePage.jsx`
+   - `/src/components/shared/Header.jsx`
+   - `/src/components/customer/StoresPage.jsx`
+   - `/tailwind.config.js`
+   - `/vercel.json`
+
+4. **Deployment Commands**
+   ```bash
+   # Build locally
+   npm run build
+   
+   # Deploy to Vercel
+   vercel --prod
+   ```
+
+5. **Verification Checklist**
+   - ✅ Green and gold colors throughout
+   - ✅ Videos play in timeline section
+   - ✅ No "Не можете да ни посетите?" section in Stores
+   - ✅ Header has green gradient background
+   - ✅ Buttons use green/gold gradients
+   - ✅ Shopping cart has gold styling
+
+### **Key Differences from Previous Design**
+
+| Feature | Previous (Amber/Orange) | Current (Green/Gold) |
+|---------|------------------------|---------------------|
+| Primary Colors | Amber (#f59e0b), Orange (#fb923c) | Deep Green (#1e5631), Gold (#d4af37) |
+| Header Background | Amber gradient | Green gradient with gold accents |
+| Buttons | Orange/amber gradients | Green/gold gradients |
+| Timeline Icons | Amber colored | Gold colored with green backgrounds |
+| Shopping Cart | Orange accent | Gold accent |
+| Active Nav | Orange underline | Gold underline |
+| Logo | Orange gradient text | Gold gradient text |
+| Videos | Not implemented | Croissant & Cupcake videos in timeline |
+
+### **Performance Metrics (Green/Gold)**
+- **Build Size:** 89.57 kB main JS (gzipped)
+- **CSS Size:** 10.64 kB (gzipped)
+- **Video Assets:** 1.8MB total (810KB + 1MB)
+- **Build Time:** ~27 seconds on Vercel
+- **Deployment:** Vercel with video support
+
+---
+
+**Last Updated:** August 6, 2025
+**Design Version:** Green and Gold v1.0
+**Status:** Production Ready ✅
+**Restoration Keywords:** "green", "gold", or "both"

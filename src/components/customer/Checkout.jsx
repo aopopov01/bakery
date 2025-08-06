@@ -209,12 +209,12 @@ function Checkout() {
   
   if (orderSuccess) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-50 to-emerald-100 flex items-center justify-center py-16">
+      <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-pink-50 flex items-center justify-center py-16">
         <div className="max-w-md mx-auto text-center">
-          <div className="w-20 h-20 bg-green-500 rounded-full mx-auto mb-6 flex items-center justify-center">
+          <div className="w-20 h-20 bg-storefront-sage rounded-full mx-auto mb-6 flex items-center justify-center">
             <CheckCircle className="w-12 h-12 text-white" />
           </div>
-          <h1 className="text-3xl font-bold text-green-800 mb-4">
+          <h1 className="text-3xl font-bold text-storefront-deep-green mb-4">
             🎉 Поръчката е успешна!
           </h1>
           <p className="text-green-700 mb-6">
@@ -344,7 +344,7 @@ function Checkout() {
                     onClick={() => setDeliveryInfo({...deliveryInfo, type: 'pickup'})}
                     className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
                       deliveryInfo.type === 'pickup'
-                        ? 'border-blue-500 bg-blue-50'
+                        ? 'border-storefront-gold bg-storefront-cream'
                         : 'border-gray-300 hover:border-gray-400'
                     }`}
                   >
@@ -361,7 +361,7 @@ function Checkout() {
                     onClick={() => setDeliveryInfo({...deliveryInfo, type: 'delivery'})}
                     className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
                       deliveryInfo.type === 'delivery'
-                        ? 'border-blue-500 bg-blue-50'
+                        ? 'border-storefront-gold bg-storefront-cream'
                         : 'border-gray-300 hover:border-gray-400'
                     }`}
                   >
@@ -426,12 +426,12 @@ function Checkout() {
                     onClick={() => setPaymentMethod('cash')}
                     className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
                       paymentMethod === 'cash'
-                        ? 'border-pink-500 bg-pink-50'
+                        ? 'border-complement-dusty-rose bg-complement-blush'
                         : 'border-gray-300 hover:border-gray-400'
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                      <div className="w-6 h-6 bg-storefront-sage rounded-full flex items-center justify-center">
                         💰
                       </div>
                       <div>
